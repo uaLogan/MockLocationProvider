@@ -25,6 +25,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import nl.cowlumbus.android.mockgps.R;
@@ -155,7 +156,8 @@ public class MockGpsProviderActivity extends Activity implements LocationListene
 				Location location = new Location(MOCK_PROVIDER);
 				location.setLatitude(latitude);
 				location.setLongitude(longitude);
-				location.setTime(System.currentTimeMillis());
+				location.setTime((new Date()).getTime());
+				location.setAccuracy((float) 0.5);
 
 				// provide the new location
 				LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
